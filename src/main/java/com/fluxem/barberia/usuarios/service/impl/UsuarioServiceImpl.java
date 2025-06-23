@@ -68,6 +68,9 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public void eliminarUsuario(Long id) {
+        if (!usuarioRepository.existsById(id)) {
+            throw new IllegalArgumentException("El usuario con ID " + id + " no existe");
+        }
         usuarioRepository.deleteById(id);
     }
 
