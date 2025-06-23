@@ -27,6 +27,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @SuppressWarnings("null")
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -40,7 +41,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
                 String correo = jwtTokenProvider.obtenerCorreoDesdeJWT(token);
                 Usuario usuario = usuarioRepository.findByCorreoConRoles(correo).orElse(null);
                 if (usuario != null) {
-                    var authorities = usuario.getRoles().stream()
+                    // Copia defensiva para evitar ConcurrentModificationException
+                    var rolesCopia = new java.util.HashSet<>(usuario.getRoles());
+                    var authorities = rolesCopia.stream()
                             .map(r -> new SimpleGrantedAuthority("ROLE_" + r.getNombre()))
                             .collect(Collectors.toSet());
                     UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
