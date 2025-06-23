@@ -11,4 +11,10 @@ public class LoginResponse {
     private String correo;
     private Set<String> roles;
 
+    public LoginResponse(String token, String correo, Set<String> roles) {
+    this.token = token;
+    this.correo = correo;
+    this.roles = roles;
+}
+
 }

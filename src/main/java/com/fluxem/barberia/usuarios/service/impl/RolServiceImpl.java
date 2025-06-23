@@ -1,13 +1,13 @@
 package com.fluxem.barberia.usuarios.service.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import com.fluxem.barberia.usuarios.domain.entity.Rol;
 import com.fluxem.barberia.usuarios.repository.RolRepository;
 import com.fluxem.barberia.usuarios.service.RolService;
 
+@Service
 public class RolServiceImpl implements RolService {
 
     @Autowired
