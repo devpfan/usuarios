@@ -1,0 +1,45 @@
+# --- Archivos del sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Archivos de VS Code ---
+.vscode/
+
+# --- Archivos de Gradle ---
+.gradle/
+build/
+bin/
+
+# --- Archivos de salida de Java ---
+*.class
+*.jar
+*.war
+*.ear
+
+# --- Logs y temporales ---
+*.log
+*.tmp
+*.swp
+
+# --- Sistema de archivos ---
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+# --- Archivos de configuración local ---
+*.env
+.env.*
+
+# --- Sistema operativo ---
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# --- Archivos de caché ---
+.cache/
+*.lock
+
+# --- Otros ---
+!gradle/wrapper/gradle-wrapper.jar
